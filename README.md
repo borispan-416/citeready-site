@@ -14,7 +14,6 @@ Static site — no build command, output directory is the repo root. Hosted on C
 
 ## Before / after launch — TODOs
 
-- **Contact email:** search all files for `CONTACT@PLACEHOLDER.TODO` and replace with the real
-  address (currently the CTAs fall back to a `mailto:` so they stay functional).
+- **Contact email:** set to `boris.pan+citeready@gmail.com` (CTAs use a `mailto:` fallback). ✅
 - **Stripe Payment Links:** every `$300 Teardown` button is marked with a `<!-- TODO:stripe -->`
   comment. Replace the `mailto:` href with the Stripe Payment Link URL once it exists.
