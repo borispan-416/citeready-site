@@ -96,6 +96,21 @@ strong { font-weight: 600; }
 .btn:hover .arrow { transform: translateX(3px); }
 .cta-note { margin-top: 0.7rem; font-size: 0.82rem; color: var(--ink-faint); }
 
+/* secondary (low-stakes) CTA — free preview */
+.cta-secondary {
+  display: inline-block; margin-top: 1rem; font-size: 0.94rem; font-weight: 600;
+  color: var(--accent); text-decoration: none;
+}
+.cta-secondary:hover { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+.cta-secondary .arrow { transition: transform .16s ease; display: inline-block; }
+.cta-secondary:hover .arrow { transform: translateX(3px); }
+.cta-distinction { margin-top: 1rem; font-size: 0.85rem; line-height: 1.5; color: var(--ink-faint); max-width: 48ch; }
+.final-secondary { margin-top: 1.1rem; font-size: 0.94rem; }
+.final-secondary a { font-weight: 600; text-decoration: none; }
+.final-secondary a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.final-secondary .arrow { transition: transform .16s ease; display: inline-block; }
+.final-secondary a:hover .arrow { transform: translateX(3px); }
+
 /* ---------- problem / bullets ---------- */
 .stack { display: grid; gap: 1.4rem; }
 .point { display: grid; grid-template-columns: auto 1fr; gap: 0.9rem 1rem; align-items: start; }
@@ -134,6 +149,8 @@ strong { font-weight: 600; }
   padding: 1.5rem 1.6rem; display: grid; gap: 0.35rem;
 }
 .tier--feature { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.tier--free { background: transparent; border-style: dashed; border-color: var(--line); }
+.tier--free .price { color: var(--accent); }
 .tier .tier-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .tier .name { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; }
 .tier .price { font-weight: 700; color: var(--accent-deep); white-space: nowrap; }
