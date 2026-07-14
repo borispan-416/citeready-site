@@ -1,0 +1,114 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample AI Visibility Teardown — CiteReady</title>
+<meta name="description" content="A real, anonymized sample of a CiteReady AI Visibility Teardown for an Austin personal-injury firm — the same format we deliver to paying clients.">
+<meta name="robots" content="index,follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="/">CiteReady<span class="dot">.</span></a>
+    <span class="byline">by Pancratic Enterprises</span>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="wrap">
+    <a class="back" href="/">&larr; Back to CiteReady</a>
+
+    <p class="eyebrow" style="margin-top:1.75rem">Sample AI Visibility Teardown</p>
+    <h1 style="font-size:clamp(1.9rem,4.5vw,2.6rem)">An Austin personal-injury firm, scored.</h1>
+
+    <div class="disclaimer">
+      <strong>Demonstration audit.</strong> Subject: a real Austin personal-injury firm, anonymized here for privacy —
+      chosen to show the format. Findings are based on public answer-engine synthesis captured June 2026, the same
+      method we run for paying clients (the production version adds direct ChatGPT / Perplexity / Google-AI API probes).
+      This is constructive competitive analysis, not an endorsement or disparagement.
+    </div>
+
+    <h2 style="margin-top:0">AI Visibility Score</h2>
+    <div class="score-headline">34 <span class="max">/ 100</span> 🟠</div>
+
+    <table>
+      <thead>
+        <tr><th>Component</th><th class="num-cell">Score</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Presence (40)</td>
+          <td class="num-cell">12 / 40</td>
+          <td>Named in <strong>0 of 5</strong> AI-synthesized answers to core buyer queries; appears only as a raw directory/link listing.</td>
+        </tr>
+        <tr>
+          <td>Citation quality (25)</td>
+          <td class="num-cell">6 / 25</td>
+          <td>When surfaced, it&rsquo;s a bare link, not a cited recommendation with detail.</td>
+        </tr>
+        <tr>
+          <td>Competitive share (20)</td>
+          <td class="num-cell">4 / 20</td>
+          <td>Competitors dominate the synthesized answer (see below).</td>
+        </tr>
+        <tr>
+          <td>Crawlability / E-E-A-T (15)</td>
+          <td class="num-cell">12 / 15</td>
+          <td>Site loads; family-run / 30+ yrs experience is a strong, citable credential — but it isn&rsquo;t being extracted by AI.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>What we tested (5 of the 10 buyer-intent queries)</h2>
+    <ol>
+      <li>&ldquo;best personal injury lawyer in Austin for car accident settlement&rdquo;</li>
+      <li>&ldquo;who is the top rated motorcycle accident attorney in Austin&rdquo;</li>
+      <li>&ldquo;best personal injury lawyer in Austin TX&rdquo;</li>
+      <li>&ldquo;who should I call after a car accident in Austin&rdquo;</li>
+      <li>&ldquo;[firm name] reviews — is it a good firm&rdquo;</li>
+    </ol>
+
+    <h2>What the AI actually said (the gap, in their words)</h2>
+    <ul>
+      <li>For query 1, the synthesized answer named three competitor firms citing specific results (multi-million-dollar settlements, top Avvo ratings). <strong>The subject firm was not named.</strong></li>
+      <li>For query 2, it again named competitors with extractable proof points (success rates, recognitions). <strong>The subject firm was not named.</strong></li>
+      <li>The pattern: <strong>AI answers reward firms that publish specific, extractable facts</strong> (dollar results, success rates, named recognitions). The subject firm&rsquo;s genuine strength — <em>family-run, 30+ years</em> — exists on the site but isn&rsquo;t structured for extraction, so the AI never cites it.</li>
+    </ul>
+
+    <h2>Root-cause diagnosis</h2>
+    <ol>
+      <li><strong>Facts aren&rsquo;t extractable.</strong> &ldquo;30+ years&rdquo; and case outcomes are buried in marketing prose, not in citable fact blocks or schema.</li>
+      <li><strong>No buyer-question content.</strong> Competitors implicitly answer &ldquo;how much is my case worth?&rdquo; / &ldquo;who&rsquo;s the best for X&rdquo; with structured pages; the subject firm doesn&rsquo;t, so it&rsquo;s absent from those answers.</li>
+      <li><strong>Weak machine-readable E-E-A-T.</strong> Attorney credentials and recognitions aren&rsquo;t marked up where AI crawlers look.</li>
+    </ol>
+
+    <h2>Top 5 fixes (ranked by impact) — what a retainer would deliver</h2>
+    <ol>
+      <li><strong>Citable results block</strong> — a structured, fact-dense &ldquo;Results &amp; Recognition&rdquo; section (specific settlements w/ context, years in practice, bar admissions). <em>Drafted by us.</em></li>
+      <li><strong>&ldquo;Best injury lawyer in Austin for ___&rdquo; answer pages</strong> — 1 per core practice area, answer-first format. <em>Drafted by us.</em></li>
+      <li><strong>FAQ schema</strong> for the 10 highest-intent questions (case value, timelines, fees). <em>Markup spec by us.</em></li>
+      <li><strong>Attorney bio + credentials schema</strong> — make E-E-A-T machine-readable.</li>
+      <li><strong>Review/reputation surfacing</strong> — structured testimonials + aggregate rating markup.</li>
+    </ol>
+
+    <h2>Projected outcome (honest framing)</h2>
+    <p style="color:var(--ink-soft)">Target: move from <strong>0/5 &rarr; 3/5</strong> named presence on core queries within 60–90 days. AI engines are non-deterministic, so we sell <strong>measured movement + the done work</strong>, not a guarantee.</p>
+
+    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)">
+      <p style="color:var(--ink-soft)">This is the format your firm&rsquo;s teardown would take.</p>
+      <!-- TODO:stripe — replace href with Stripe Payment Link when it exists -->
+      <a class="btn btn--primary" href="mailto:CONTACT@PLACEHOLDER.TODO?subject=AI%20Visibility%20Teardown%20(%24300)&body=I'd%20like%20to%20request%20an%20AI%20Visibility%20Teardown%20for%20my%20firm.">
+        Get your $300 Teardown <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© 2026 Pancratic Enterprises — CiteReady</span>
+    <span>Engine: <strong>ai-findability</strong></span>
+  </div>
+</footer>
