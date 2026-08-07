@@ -51,24 +51,42 @@ reads as a drop in interest rather than broken instrumentation. Check with:
 grep -c cloudflareinsights *.html   # expect 1 per page
 ```
 
-It is added by hand rather than with the Pages *Metrics → Web Analytics* toggle on purpose —
-see below. If the pages ever get a real `<body>`, switch to the toggle and delete the script
+The manual tags predate the pages having a real `<body>`. Now that they have one, the Pages
+*Metrics → Web Analytics* toggle would also work — if you switch to it, delete these script
 tags. Do not do both: the toggle injects its own beacon, and leaving these tags in place
 would double-count every pageview.
 
-## Known issue — no HTML document structure
+## Document structure
 
-None of the pages have `<!DOCTYPE html>`, `<html>`, `<head>`, or `<body>`. They begin at
-`<meta charset="utf-8">` and end at `</footer>`. Two consequences:
+All pages have `<!DOCTYPE html>`, `<html lang="en">`, `<head>`, and `<body>`, and render in
+standards mode (`document.compatMode === "CSS1Compat"`). Keep the DOCTYPE — removing it, or
+replacing it with a legacy/malformed one, drops the page back to quirks mode. Comments and
+whitespace *before* the DOCTYPE are harmless in modern browsers (verified), so a header
+comment above it is fine; putting it first is convention, not a requirement.
 
-- **The site renders in quirks mode** (`document.compatMode === "BackCompat"`), so the CSS is
-  currently tuned against legacy box-model and line-height rules.
-- **Cloudflare Pages cannot auto-inject the analytics beacon**, because it inserts before
-  `</body>` and there is none — hence the manual script tags above.
+This was fixed after the pages shipped without it. Page-height change caused by the switch,
+measured at 13 viewport widths from 320px to 1280px, including both sides of the 760px and
+640px breakpoints:
 
-Adding a DOCTYPE is the correct fix, but it flips all three pages into standards mode and
-**can shift the layout** (spacing and line-height most likely). Do it as its own change, with
-before/after screenshots at desktop and mobile widths — not as a drive-by edit.
+| page | height change | what changed |
+|---|---|---|
+| index.html | 0px at every width (+1px at 320) | nothing; a few elements moved 1px (rounding) |
+| pricing.html | +6px at every width | hero block 6px taller, uniform shift below |
+| teardown.html | +75px wide → +213px at 375 | the scorecard table (see below) |
+
+Deltas are what to re-check; absolute page heights are not reproducible across measurement
+setups (device emulation and frame size shift them by ~100px without anything changing).
+
+Only the teardown table changed visibly. In quirks mode a table does not inherit
+`line-height` from the body, so its cells fell back to `normal` (~18px) and ignored the
+stylesheet's 25.08px. Standards mode inherits correctly, so the rows are taller and the table
+grew 267px → 337px. That is the CSS finally applying as written, not a regression.
+
+Separately — and **not** caused by the standards-mode switch — that table overflows the
+viewport below about 370px. Its min-content width is 346px, and `.doc table` in `styles.css`
+sets `width: 100%` with no `overflow-x` handling, so at a 320px viewport the page scrolls
+sideways by 50px and the SCORE / NOTES columns are clipped. Measured identically before and
+after the DOCTYPE change. Tracked in the checklist below.
 
 ## Launch checklist
 
@@ -76,4 +94,10 @@ before/after screenshots at desktop and mobile widths — not as a drive-by edit
 - **Stripe Payment Links:** live on every paid CTA — the $300 Teardown, all three retainer
   tiers, and the Answer Page Pack. ✅
 - **Analytics:** Cloudflare Web Analytics on all three pages. ✅
-- **DOCTYPE / document structure:** still missing — see *Known issue* above. ⬜
+- **DOCTYPE / document structure:** added; pages render in standards mode. ✅
+- **Teardown table on narrow screens:** overflows the viewport below ~370px (pre-dates the
+  DOCTYPE fix). Needs `overflow-x: auto` on a wrapper, or a stacked layout under 480px. ⬜
+- **Custom domain:** still on `citeready.pages.dev`. ⬜
+- **SEO / AI-crawler files:** no `robots.txt`, `sitemap.xml`, JSON-LD, or `llms.txt`. ⬜
+- **OG tags / favicon:** `index.html` lacks `og:image` and `og:url`; the other two pages have
+  no OG tags at all; no favicon or canonical URLs anywhere. ⬜
