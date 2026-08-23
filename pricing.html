@@ -6,6 +6,72 @@
 <title>Pricing — CiteReady</title>
 <meta name="description" content="CiteReady pricing: the free public-signal preview, the $300 AI Visibility Teardown, monthly retainer tiers (Starter / Growth / Authority), and the Answer Page Pack — with exactly what's included in each.">
 <meta name="robots" content="index,follow">
+<link rel="canonical" href="https://citeready.pages.dev/pricing.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://citeready.pages.dev/#organization",
+      "name": "CiteReady",
+      "url": "https://citeready.pages.dev/",
+      "description": "CiteReady measures whether AI answer engines cite personal-injury law firms in the answers their future clients see, and fixes the reasons they don't.",
+      "email": "boris.pan+citeready@gmail.com"
+    },
+    {
+      "@type": "Service",
+      "name": "AI Visibility Monitoring",
+      "serviceType": "Generative engine optimization (GEO) audit and monthly monitoring for law firms",
+      "provider": { "@id": "https://citeready.pages.dev/#organization" },
+      "areaServed": "US",
+      "audience": { "@type": "Audience", "audienceType": "Personal-injury law firms" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "CiteReady pricing",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "AI Visibility Teardown",
+            "price": "300",
+            "priceCurrency": "USD",
+            "description": "One-time live-probe audit and scored findings report, delivered as a PDF."
+          },
+          {
+            "@type": "Offer",
+            "name": "Starter retainer",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "500", "priceCurrency": "USD", "unitText": "month" },
+            "description": "15 buyer-intent queries tracked, 3 competitors, 1 done-for-you draft per month."
+          },
+          {
+            "@type": "Offer",
+            "name": "Growth retainer",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "900", "priceCurrency": "USD", "unitText": "month" },
+            "description": "30 buyer-intent queries tracked, 5 competitors, 3 done-for-you drafts per month plus a schema/markup spec."
+          },
+          {
+            "@type": "Offer",
+            "name": "Authority retainer",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1750", "priceCurrency": "USD", "unitText": "month" },
+            "description": "60 buyer-intent queries tracked, 8 competitors, 6 done-for-you drafts per month plus a monthly strategy note."
+          },
+          {
+            "@type": "Offer",
+            "name": "Answer Page Pack",
+            "price": "750",
+            "priceCurrency": "USD",
+            "description": "One-time add-on: 10 AI-optimized Q&A / practice-area pages, publish-ready."
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +89,9 @@
     Authority $1,750/mo · Answer Page Pack $750 one-time.
   - The free preview CTA is deliberately a mailto: request (per-firm, agent-produced,
     not self-serve) — never wire it to Stripe. Contact: boris.pan+citeready@gmail.com
+  - The preview's "5 core buyer queries" mirrors PREVIEW_CAP in ai-findability
+    (lib/preview.ts). Change one and change the other, the way the tier query counts
+    mirror TIER_CAP.
   ============================================================================
 -->
 
@@ -55,8 +124,9 @@
           <div class="plan-price">Free</div>
           <p class="plan-pos">A 1-page snapshot of whether AI answers surface your firm — based on public signals. A preview to show the gap, not a full measurement.</p>
           <ul class="feat-list">
-            <li>Whether your firm appears in AI-synthesized answers to core buyer queries</li>
+            <li>Whether your firm appears in AI-synthesized answers to <strong>5 core buyer queries</strong></li>
             <li>A first look at who&rsquo;s winning those answers instead</li>
+            <li>An instant crawlability audit of your own site, run on the spot</li>
             <li>No cost, no commitment</li>
           </ul>
           <!-- Free lead-magnet CTA — stays a mailto request, never Stripe. -->
