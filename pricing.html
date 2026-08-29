@@ -21,8 +21,11 @@
   - All 5 paid CTAs go to live Stripe Payment Links. Each was verified against its own
     checkout page: Teardown $300 one-time · Starter $500/mo · Growth $900/mo ·
     Authority $1,750/mo · Answer Page Pack $750 one-time.
-  - The free preview CTA is deliberately a mailto: request (per-firm, agent-produced,
-    not self-serve) — never wire it to Stripe. Contact: boris.pan+citeready@gmail.com
+  - The free CTA points at the self-serve preview app (the ai-findability deploy) — never
+    wire it to Stripe. It was a mailto: hand-off until 2026-08-29, when the preview became
+    automated: instant crawl audit emailed as a PDF, plus an opt-in live single-engine check
+    gated by Turnstile + email confirmation, capped at one per firm.
+  - Update the href here if the preview moves to its own subdomain (e.g. app.citeready.com).
   ============================================================================
 -->
 
@@ -51,16 +54,17 @@
       <div class="onetime-grid">
 
         <div class="onetime onetime--free">
-          <div class="plan-name">Public-signal preview</div>
+          <div class="plan-name">Free AI visibility check</div>
           <div class="plan-price">Free</div>
-          <p class="plan-pos">A 1-page snapshot of whether AI answers surface your firm — based on public signals. A preview to show the gap, not a full measurement.</p>
+          <p class="plan-pos">Two steps, both instant: we read your site the way an AI crawler does, then ask a live answer engine whether it names your firm.</p>
           <ul class="feat-list">
-            <li>Whether your firm appears in AI-synthesized answers to core buyer queries</li>
-            <li>A first look at who&rsquo;s winning those answers instead</li>
-            <li>No cost, no commitment</li>
+            <li><strong>Instant site check</strong> &mdash; crawlability, structured data and AI-readable content, emailed as a PDF</li>
+            <li><strong>Live answer check</strong> on <strong>5</strong> real buyer-intent questions: are you named, and who is named instead</li>
+            <li>One engine (Perplexity) &mdash; the paid Teardown covers five</li>
+            <li>No cost, no account, one free check per firm</li>
           </ul>
-          <!-- Free lead-magnet CTA — stays a mailto request, never Stripe. -->
-          <a class="btn btn--ghost" href="mailto:boris.pan+citeready@gmail.com?subject=Free%20AI%20visibility%20preview&body=I'd%20like%20a%20free%20public-signal%20preview%20for%20my%20firm.%20Firm%20name%20and%20website%3A%20">Request a free preview</a>
+          <!-- Free lead-magnet CTA — the self-serve preview app, never Stripe. -->
+          <a class="btn btn--ghost" href="https://ai-findability.vercel.app/">Run your free check</a>
         </div>
 
         <div class="onetime">
@@ -181,7 +185,7 @@
       <a class="btn btn--primary" href="https://buy.stripe.com/aFa00i4Ww7lO33r4LK83C00">
         Get your $300 Teardown <span class="arrow">&rarr;</span>
       </a>
-      <p class="final-secondary"><a href="mailto:boris.pan+citeready@gmail.com?subject=Free%20AI%20visibility%20preview&body=I'd%20like%20a%20free%20public-signal%20preview%20for%20my%20firm.%20Firm%20name%20and%20website%3A%20">Or start with a free public-signal preview <span class="arrow">&rarr;</span></a></p>
+      <p class="final-secondary"><a href="https://ai-findability.vercel.app/">Or run the free AI visibility check first <span class="arrow">&rarr;</span></a></p>
     </div>
   </section>
 
